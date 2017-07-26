@@ -17,8 +17,8 @@
     "express-session": "^1.15.2",
     "github": "^9.2.0",
     "mocha": "^3.4.2",
-    "mongoose": "^4.11.4"
-    morgan": "~1.8.1",
+    "mongoose": "^4.11.4",
+    "morgan": "~1.8.1",
     "nedb": "^1.8.0",
     "pug": "^2.0.0-rc.2",
     "sendmail": "^1.1.1",
