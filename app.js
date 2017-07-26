@@ -17,7 +17,7 @@ var mid = require('./middleware/index')
 var app = express();
 
 
-mongoose.connect('mongodb://username:password@ds119682.mlab.com:19682/capstone-project');
+mongoose.connect('mongodb://treehouse:treehouse@ds119682.mlab.com:19682/capstone-project');
 var db = mongoose.connection;
 //mongo error
 db.on("error", console.error.bind(console, 'connection error:'));
