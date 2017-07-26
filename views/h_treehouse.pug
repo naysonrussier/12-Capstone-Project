@@ -1,0 +1,19 @@
+.container.treehouse_page
+	.row.block
+		.avatar.col-lg-2.col-md-3.col-sm-4.col-12
+			img(src="{{treehouseProfile.gravatar_url}}")
+		.col-lg-10.col-md-9.col-sm-8.col-12
+			h1 {{treehouseProfile.name}}
+			h4 TechDegree Student
+			h4 You can view my page on TreeHouse 
+				a(href="{{treehouseProfile.profile_url}}" target="_blank") here
+	.badges.block.row
+		h1.title Badges
+		h3.sub-title I've got actually {{treehouseProfile.badges.length}} badges in hand!!!
+		.col-lg-3.col-md-4.col-sm-6(ng-repeat="tl in treehouseProfile.badges")
+			img(src="{{tl.icon_url}}" alt="{{tl.name}}")
+			a.absolute(href="{{tl.url}}", target="_blank")
+				h4.name {{tl.name}}
+				.other
+					h5.name {{tl.courses[0].title}}
+					p.earn_date Earned date: {{tl.earned_date}}

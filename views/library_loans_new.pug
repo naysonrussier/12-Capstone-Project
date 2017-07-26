@@ -1,0 +1,20 @@
+include ./library_error.pug
+h1 New Loan
+form(ng-submit="postNewLoan()")
+	p
+		label(for='book_id') Book
+		select#book_id(ng-model="LoanNew.book_id")
+			option(ng-repeat="data in BooksList" ng-disabled="data.checked" value='{{data.id}}') {{data.title}} {{data.checked === true ? " - checked out" : ""}}
+			
+	p
+		label(for='patron_id') Patron
+		select#patron_id(ng-model="LoanNew.patron_id")
+			option(ng-repeat="data in PatronsList")(value='{{data.id}}') {{data.first_name}} {{data.last_name}}
+	p
+		label(for='loaned_on') Loaned on:
+		input#loaned_on(type='text', ng-model="LoanNew.loaned_on" ng-change="date_returnBy()")
+	p
+		label(for='return_by') Return by:
+		input#return_by(type='text', ng-model="LoanNew.return_by")
+	p
+		input(type='submit', value='Create New Loan')

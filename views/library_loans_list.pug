@@ -1,0 +1,32 @@
+h1 {{LoansState.states[LoansState.state]}}
+p
+	a.button(href='#!/loans/new') Create New Loan
+p
+	| Filters 
+	a(href="#!/loans") All
+	|	| 
+	a(href="#!/loans?filter=overdue") Overdue
+	|	| 
+	a(href="#!/loans?filter=checked") Checked Out
+table
+	thead
+		tr
+			th Book
+			th Patron
+			th Loaned on
+			th Return by
+			th Returned on
+			th Action
+	tbody
+		tr(dir-paginate="loan in LoansList | itemsPerPage: config.pageSize" current-page="config.currentPage")
+			td
+				a(href='#!/books/{{loan.book_id}}') {{loan.book.title}}
+			td
+				a(href='#!/patrons/{{loan.patron_id}}') {{loan.patron.first_name}} {{loan.patron.last_name}}
+			td {{loan.loaned_on}}
+			td {{loan.return_by}}
+			td {{loan.returned_on}}
+			td
+				a.button(href='#!/loans/return?id={{loan.id}}' ng-hide="loan.returned_on != null") Return Book
+dir-pagination-controls(boundary-links="true" template-url="pagination")
+		

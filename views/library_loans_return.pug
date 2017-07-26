@@ -1,0 +1,20 @@
+include ./library_error.pug
+h1 Patron: Return Book
+p
+	strong Book Title:
+	|	{{LoanDetail.book.title}}
+p
+	strong Loaned By:
+	|	{{LoanDetail.patron.first_name}} {{LoanDetail.patron.last_name}}
+p
+	strong Loaned On:
+	|	{{LoanDetail.loaned_on}}
+p
+	strong Return By:
+	|	{{LoanDetail.return_by}}
+form(ng-submit="returnBook()")
+	p
+		label(for='returned_on') Returned on:
+		input#returned_on(type='text', value='2020-10-10' ng-model="LoanDetail.returned_on")
+	p
+		input(type='submit', value='Return Book')

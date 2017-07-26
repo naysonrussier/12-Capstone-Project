@@ -1,0 +1,9 @@
+.container.github
+	.row.github.block
+		h1.title Github
+		h4.sub-title All of my git repository :
+		.col-xs-12.col-sm-6.col-md-4.box(ng-repeat="git in githubRepos")
+				h4.name {{git.name}}
+				a.absolute(href="{{git.html_url}}" target="_blank")
+					p.description {{git.description}}
+					p.created_date {{git.created_at}}

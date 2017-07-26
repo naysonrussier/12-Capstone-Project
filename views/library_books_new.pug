@@ -1,0 +1,17 @@
+include ./library_error.pug
+h1 New Book
+form(ng-submit="postNewBook()")
+	p
+		label(for='title') Title
+		input#title(type='text' ng-model="BookNew.title")
+	p
+		label(for='author') Author
+		input#author(type='text' ng-model="BookNew.author")
+	p
+		label(for='genre') Genre
+		input#genre(type='text' ng-model="BookNew.genre")
+	p
+		label(for='first_published') First Published
+		input#first_published(type='text' ng-model="BookNew.first_published")
+	p
+		input(type='submit', value='Create New Book')

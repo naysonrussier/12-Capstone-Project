@@ -1,0 +1,109 @@
+.container
+	slick.slider(settings="slickConfig")
+		div
+			img(src="/img/treehouse.svg")
+			.description
+				h1.title Treehouse
+				h2.sub-title A great way to learn how to code! </br> If you want to learn quickly, easily, and nicely!
+				a.more.btn.btn-primary(href="http://teamtreehouse.com", target="_blank") Learn more
+		div
+			img(src="/img/odoo.jpg")
+			.description
+				h1.title Odoo
+				h2.sub-title A complete program, working on python, which will grow your business even faster!
+				a.more.btn.btn-primary(href="http://odoo.com", target="_blank") Learn more
+		div
+			img(src="/img/odoo_website.jpg")
+			.description
+				h1.title Odoo!
+				h2.sub-title All in One! </br> Website, CRM, Sales, Accounting, Deliveries, and many more!
+				a.more.btn.btn-primary(href="http://odoo.com", target="_blank") Learn more
+		div
+			img(src="/img/wordpress.jpg")
+			.description
+				h1.title Wordpress !
+				h2.sub-title Create websites easily, with hight customization. 
+				a.more.btn.btn-primary(href="http://wordpress.org", target="_blank") Learn more
+
+	.row.block#treehouse
+		h1.title Teamtreehouse!
+		h4.sub-title What is it?
+		.col-12
+			p.description Teamtreehouse is a great company where you can learn how to code in serveral languages :
+	.row.codes
+		.col-sm-4.col-md-3.col-6.boxes-container
+			.box-code
+				.code-img
+					img(src="img/codes/python.svg")
+				h2.title Python
+				p.description Python is a general-purpose language used for everything from server automation to data science.
+		.col-sm-4.col-md-3.col-6.boxes-container
+			.box-code
+				.code-img
+					img(src="img/codes/html.svg")
+				h2.title HTML
+				p.description HTML (Hypertext Markup Language) structures all the text, links, and other content you see on a website.
+		.col-sm-4.col-md-3.col-6.boxes-container
+			.box-code
+				.code-img
+					img(src="img/codes/css.svg")
+				h2.title CSS
+				p.description CSS is the language that makes a web page look the way it does(colors, layout...)
+		.col-sm-4.col-md-3.col-6.boxes-container
+			.box-code
+				.code-img
+					img(src="img/codes/javascript.svg")
+				h2.title JavaScript
+				p.description JavaScript provides the behavior portion of a website(change dynamically elements on the page...)
+		.col-sm-4.col-md-3.col-6.boxes-container
+			.box-code
+				.code-img
+					img(src="img/codes/swift.svg")
+				h2.title Swift
+				p.description Apple released Swift in June, 2014 as a modern language for developing Mac, iPad, iPhone, Apple Watch, and Apple TV applications
+		.col-sm-4.col-md-3.col-6.boxes-container
+			.box-code
+				.code-img
+					img(src="img/codes/more.svg")
+				h2.title And many more!
+				a(href="https://teamtreehouse.com" target="_blank")
+					p.description Click here to learn more on Treehouse!
+	.row.cta.block
+		.col-md-6.right
+			a.btn.btn-primary(href="/#!/treehouse") View infos!
+		.col-md-6.left
+			a.btn.btn-primary(href="http://teamtreehouse.com", target="_blank") Treehouse Website
+	.row.github.block#github
+		h1.title Github
+		h4.sub-title Here are 3 of my git repository :
+		.col-xs-12.col-sm-6.col-md-4.box(ng-repeat="git in githubData")
+			h4.name {{git.name}}
+			a.absolute(href="{{git.html_url}}" target="_blank")
+				p.description {{git.description}}
+				p.created_date {{git.created_at}}
+	.row.cta.block
+		.col-md-12.center
+			a.btn.btn-xs.btn-primary.more(href="/#!/github") View more github projects
+	.row.odoo.block#odoo
+		h1.title ODOO
+		h4.sub-title Do you know this great program?
+		.col-12
+			p.description Odoo is an all-in-one management software that offers a range of business applications that form a complete suite of enterprise management applications. The Odoo solution is ideal for SMEs, but fits both small and large companies alike. Odoo is an all-in-one business software capable of covering all business needs, including CRM, Website/e-Commerce, billing, accounting, manufacturing, warehouse- and project management, and inventory, all seamlessly integrated.
+
+	.row.cta.block
+		.col-md-12.center
+			a.btn.btn-xs.btn-primary.more(href="http://odoo.com" target="_blank") Learn more!
+	.row.maps.block#contact
+		h1.title Contact
+		h4.sub-title Contact me if you want advices on any of these things.
+		.col-md-8.block(style="height: 400px")
+			div#map(style="width: 100%; height: 100%; color: red;")
+				iframe(frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?q=place_id:ChIJGRuRh6tDtBIRZzW_xbf1KDI&key=AIzaSyB4S7BWoojEuLJUgEeSzUOAyvbfPYaN8Wg', allowfullscreen='')
+
+		.col-md-4.block.contact
+			h4.sub-title Contact me
+			form(action="/api/1.0/email/send", method="post")
+				input(name="name", type="text", placeholder="Your name")
+				input(name="email", type="email", placeholder="Your email")
+				textarea(name="message", type="text", placeholder="Place your message here!")
+				button.btn.btn-primary(type="submit") Submit

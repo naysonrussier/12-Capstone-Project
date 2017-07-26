@@ -1,0 +1,22 @@
+h1 Patrons
+p
+	a.button(href='#!/patrons/new') Create New Patron
+	|  |  
+	input(placeholder="Or search here" ng-change="getPatronsSearch()" ng-model="search")
+table
+	thead
+		tr
+			th Name
+			th Address
+			th Email
+			th Library ID
+			th Zip
+	tbody
+		tr(dir-paginate="patron in PatronsList | itemsPerPage: config.pageSize" current-page="config.currentPage")
+			td
+				a(href='#!/patrons/{{patron.id}}') {{patron.first_name}} {{patron.last_name}}
+			td {{patron.address}}
+			td {{patron.email}}
+			td {{patron.library_id}}
+			td {{patron.zip_code}}
+dir-pagination-controls(boundary-links="true" template-url="pagination")

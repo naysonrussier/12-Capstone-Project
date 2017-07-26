@@ -1,0 +1,28 @@
+div
+	h1 {{BooksState.states[BooksState.state]}}
+	p
+		a.button(href='#!/books/new') Create New Book
+		|	| 
+		input(placeholder="Or search here" ng-change="getlist_search()" ng-model="search")
+	p
+		| Filters 
+		a(href="#!/books") All
+		|	| 
+		a(href="#!/books?filter=overdue") Overdue
+		|	| 
+		a(href="#!/books?filter=checked") Checked Out
+	table
+		thead
+			tr
+				th Title
+				th Author
+				th Genre
+				th Year Released
+		tbody
+			tr(dir-paginate="data in BooksList | itemsPerPage: config.pageSize" current-page="config.currentPage")
+				td
+					a(href='#!/books/{{data.id}}') {{data.title}}
+				td {{data.author}}
+				td {{data.genre}}
+				td {{data.first_published}}
+	dir-pagination-controls(boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pagination")

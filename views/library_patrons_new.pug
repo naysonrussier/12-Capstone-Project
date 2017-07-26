@@ -1,0 +1,23 @@
+include ./library_error.pug
+h1 New Patron
+form(ng-submit="newPatron()")
+	p
+		label(for='first_name') First Name
+		input#first_name(type='text' ng-model='PatronNew.first_name')
+	p
+		label(for='last_name') Last Name
+		input#last_name(type='text' ng-model='PatronNew.last_name')
+	p
+		label(for='address') Address
+		input#address(type='text' ng-model='PatronNew.address')
+	p
+		label(for='email') Email
+		input#email(type='text' ng-model='PatronNew.email')
+	p
+		label(for='library_id') Library ID
+		input#library_id(type='text' ng-model='PatronNew.library_id')
+	p
+		label(for='zip_code') Zip Code
+		input#zip_code(type='text' ng-model='PatronNew.zip_code')
+	p
+		input(type='submit', value='Create New Patron')

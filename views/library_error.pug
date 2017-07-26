@@ -1,0 +1,4 @@
+div(ng-hide="errors.length == 0")
+	h1.error Oooops!
+	ul.error
+		li(ng-repeat="error in errors") {{error.message}}

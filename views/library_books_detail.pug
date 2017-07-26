@@ -1,0 +1,39 @@
+include ./library_error.pug
+h1 Book: {{BookDetail.title}}
+	form(ng-submit="updateBook()")
+		p
+			label(for='title') Title
+			input#title(type='text', value='A Brief History of Time' ng-model="BookDetail.title")
+		p
+			label(for='author') Author
+			input#author(type='text', value='Stephen Hawking' ng-model="BookDetail.author")
+		p
+			label(for='genre') Genre
+			input#genre(type='text', value='Non Fiction' ng-model="BookDetail.genre")
+		p
+			label(for='first_published') First Published
+			input#first_published(type='text', value='1988' ng-model="BookDetail.first_published")
+		p
+			input(type='submit', value='Update')
+	h2 Loan History
+	table
+		thead
+			tr
+				th Book
+				th Patron
+				th Loaned on
+				th Return by
+				th Returned on
+				th Action
+		tbody
+			tr(dir-paginate="loan in LoansByBook | itemsPerPage: config.pageSize" current-page="config.currentPage")
+				td
+					a(href='#!/books/{{loan.book.id}}') {{loan.book.title}}
+				td
+					a(href='#!/patrons/{{loan.patron.id}}') {{loan.patron.first_name}} {{loan.patron.last_name}}
+				td {{loan.loaned_on}}
+				td {{loan.return_by}}
+				td {{loan.returned_on}}
+				td
+					a.button(href='#!/loans/return?id={{loan.id}}' ng-hide="loan.returned_on != null") Return Book
+	dir-pagination-controls(boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pagination")
