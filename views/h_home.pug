@@ -103,7 +103,7 @@
 		.col-md-4.block.contact
 			h4.sub-title Contact me
 			form(action="/api/1.0/email/send", method="post")
-				input(name="name", type="text", placeholder="Your name")
-				input(name="email", type="email", placeholder="Your email")
+				input(name="name", type="text", placeholder="Your name" required)
+				input(name="email", type="email", placeholder="Your email" required)
 				textarea(name="message", type="text", placeholder="Place your message here!")
 				button.btn.btn-primary(type="submit") Submit
